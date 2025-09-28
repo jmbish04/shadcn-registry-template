@@ -1,0 +1,7 @@
+name = "react-shadcn-worker"
+main = "worker/index.js"
+compatibility_date = "2025-01-29"
+
+[assets]
+directory = "./dist"
+not_found_handling = "single-page-application"
