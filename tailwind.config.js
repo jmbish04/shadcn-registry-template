@@ -1,12 +1,14 @@
-module.exports = {
+import animate from "tailwindcss-animate";
+
+/** @type {import('tailwindcss').Config} */
+const config = {
   darkMode: ["class"],
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    container: { center: true, padding: "2rem" },
+    container: {
+      center: true,
+      padding: "2rem",
+    },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -15,11 +17,11 @@ module.exports = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         primary: {
-          DEFAULT: "#2563eb", // blue-600
+          DEFAULT: "#2563eb",
           foreground: "#ffffff",
         },
         secondary: {
-          DEFAULT: "#1d4ed8", // blue-700
+          DEFAULT: "#1d4ed8",
           foreground: "#ffffff",
         },
       },
@@ -29,8 +31,14 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
-        "accordion-down": { from: { height: 0 }, to: { height: "var(--radix-accordion-content-height)" } },
-        "accordion-up": { from: { height: "var(--radix-accordion-content-height)" }, to: { height: 0 } },
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -38,5 +46,7 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 };
+
+export default config;
