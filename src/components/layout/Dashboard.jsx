@@ -20,9 +20,7 @@ export default function Dashboard({ stats = [] }) {
           </CardHeader>
           <CardContent className="space-y-1">
             <p className="text-3xl font-semibold tracking-tight text-foreground">{value}</p>
-            {change ? (
-              <p className="text-xs text-muted-foreground">{change}</p>
-            ) : null}
+            {change && <p className="text-xs text-muted-foreground">{change}</p>}
           </CardContent>
         </Card>
       ))}
