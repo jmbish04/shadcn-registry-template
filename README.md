@@ -1,23 +1,45 @@
-# registry-template
+# React + shadcn/ui Cloudflare Worker Template
 
-You can use the `shadcn` CLI to run your own component registry. Running your own
-component registry allows you to distribute your custom components, hooks, pages, and
-other files to any React project.
+This repository provides a plain React (Vite) starter that integrates the shadcn/ui component system, Tailwind CSS, and a blue-accented dashboard layout. It is paired with a Cloudflare Worker configuration that serves the built static assets with single-page application routing enabled.
 
-> [!IMPORTANT]  
-> This template uses Tailwind v4. For Tailwind v3, see [registry-template-v3](https://github.com/shadcn-ui/registry-template-v3).
+## Features
+
+- **Vite + React** JavaScript setup with sensible defaults.
+- **Tailwind CSS** configured for shadcn/ui components and blue primary/secondary colors.
+- **Prebuilt Layout** including a sidebar and stat card dashboard views.
+- **shadcn/ui Components** (button, card, input, label, navigation menu, scroll area, separator, sidebar, sheet) ready to compose.
+- **Cloudflare Worker Deployment** via Wrangler using the assets binding and SPA fallbacks.
+- **Gemini Recommendations** folder capturing the rollout plan and checklist.
 
 ## Getting Started
 
-This is a template for creating a custom registry using Next.js.
+Install dependencies and start the development server:
 
-- The template uses a `registry.json` file to define components and their files.
-- The `shadcn build` command is used to build the registry.
-- The registry items are served as static files under `public/r/[name].json`.
-- The template also includes a route handler for serving registry items.
-- Every registry item are compatible with the `shadcn` CLI.
-- We have also added v0 integration using the `Open in v0` api.
+```bash
+npm install
+npm run dev
+```
 
-## Documentation
+## Build
 
-Visit the [shadcn documentation](https://ui.shadcn.com/docs/registry) to view the full documentation.
+Create an optimized production build in `dist/`:
+
+```bash
+npm run build
+```
+
+## Cloudflare Worker
+
+Preview locally with Wrangler:
+
+```bash
+npx wrangler dev --local
+```
+
+Deploy to Cloudflare Workers:
+
+```bash
+npx wrangler deploy
+```
+
+The Worker entry point is defined in [`worker/index.js`](worker/index.js) and uses Wrangler's assets binding declared in [`wrangler.toml`](wrangler.toml).
